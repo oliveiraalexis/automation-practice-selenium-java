@@ -19,5 +19,9 @@ public class MyAccountPage extends PageObject{
 	public Boolean isMyAccountPage() {
 		return browser.getCurrentUrl().equals(URL_MYACCOUNT);
 	}
+	
+	public PersonalInformationPage goPersonalPage() {
+		return new PersonalInformationPage(browser);
+	}
 
 }
