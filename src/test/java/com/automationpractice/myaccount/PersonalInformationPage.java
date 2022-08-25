@@ -16,7 +16,7 @@ public class PersonalInformationPage extends PageObject{
 	private String nascimento;
 	
 	
-	PersonalInformationPage(WebDriver browser) {
+	public PersonalInformationPage(WebDriver browser) {
 		super(browser);
 		browser.navigate().to(URL_PERSONAL);
 	}

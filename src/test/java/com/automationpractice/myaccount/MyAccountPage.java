@@ -13,7 +13,7 @@ public class MyAccountPage extends PageObject{
 	}
 	
 	public String getLoggedUsername() {
-		return browser.findElement(By.className("account")).getText();
+		return browser.findElement(By.className("account")).getText().toString();
 	}
 	
 	public Boolean isMyAccountPage() {
