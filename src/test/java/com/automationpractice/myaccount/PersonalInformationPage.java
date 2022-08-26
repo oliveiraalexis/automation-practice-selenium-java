@@ -10,19 +10,26 @@ public class PersonalInformationPage extends PageObject{
 	
 	private static final String URL_PERSONAL = "http://automationpractice.com/index.php?controller=identity";
 	private WebElement tituloSocial;
-	private String nome;
-	private String sobrenome;
-	private String email;
-	private String nascimento;
+	private WebElement nome;
+	private WebElement sobrenome;
+	private WebElement email;
+	private WebElement diaNascimento;
+	private WebElement mesNascimento;
+	private WebElement anoNascimento;
 	
 	
-	public PersonalInformationPage(WebDriver browser) {
+	PersonalInformationPage(WebDriver browser) {
 		super(browser);
-		browser.navigate().to(URL_PERSONAL);
+		this.nome = browser.findElement(By.id("firstname"));
+		this.sobrenome = browser.findElement(By.id("lastname"));
+		this.email = browser.findElement(By.id("email"));
+		this.diaNascimento = browser.findElement(By.id("uniform-days"));
+		this.mesNascimento = browser.findElement(By.id("uniform-months"));
+		this.anoNascimento = browser.findElement(By.id("uniform-years"));
+		this.tituloSocial = browser.findElement(By.cssSelector(".radio .checked"));
 	}
 	
 	public WebElement getTituloSocial() {
-		System.out.println (browser.findElement(By.cssSelector(".radio .checked")));
 		return browser.findElement(By.cssSelector(".radio .checked"));
 	}
 	
@@ -34,7 +41,7 @@ public class PersonalInformationPage extends PageObject{
 		return browser.findElement(By.id("firstname")).getText();
 	}
 	
-	public void setName(String nome) {
+	public void setName(WebElement nome) {
 		this.nome = nome;
 	}
 	
@@ -42,7 +49,7 @@ public class PersonalInformationPage extends PageObject{
 		return browser.findElement(By.id("lastname")).getText();
 	}
 	
-	public void setSobrenome(String sobrenome) {
+	public void setSobrenome(WebElement sobrenome) {
 		this.sobrenome = sobrenome;
 	}
 	

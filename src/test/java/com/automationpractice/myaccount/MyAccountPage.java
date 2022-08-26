@@ -20,8 +20,13 @@ public class MyAccountPage extends PageObject{
 		return browser.getCurrentUrl().equals(URL_MYACCOUNT);
 	}
 	
-	public PersonalInformationPage goPersonalPage() {
+	public PersonalInformationPage clickPersonalInformationButton() {
+		browser.findElement(By.cssSelector("a[title='Information']")).click();
 		return new PersonalInformationPage(browser);
+	}
+	
+	public Boolean getLogoutButton() {
+		return browser.findElement(By.className("logout")).isDisplayed();
 	}
 
 }
