@@ -7,10 +7,11 @@ import org.junit.jupiter.api.Test;
 
 import com.automationpractice.login.LoginPage;
 
-public class MyAccountTeste {
+public class MyAccountTest {
 	
 	private LoginPage paginaDeLogin;
 	private MyAccountPage paginaMinhaConta;
+	private PersonalInformationPage paginaInformacoesPessoais;
 	
 	@BeforeEach
 	public void before() {
@@ -25,7 +26,23 @@ public class MyAccountTeste {
 	}
 	
 	@Test
+	public void deveriaEstarNaPaginaMinhaConta() {
+		Assertions.assertTrue(this.paginaMinhaConta.isMyAccountPage());
+	}
+	
+	@Test
 	public void deveriaExibirNomeUsuarioLogado() {
 		Assertions.assertTrue(this.paginaMinhaConta.getLoggedUsername().equals("Alexis Oliveira"));
+	}
+	
+	@Test
+	public void deveriaExibirBotaoLogout() {
+		Assertions.assertTrue(this.paginaMinhaConta.getLogoutButton());
+	}
+	
+	@Test
+	public void deveriaAbrirPaginaDeInformacoesPessoais() {
+		this.paginaInformacoesPessoais = this.paginaMinhaConta.clickPersonalInformationButton();
+		Assertions.assertTrue(this.paginaInformacoesPessoais.isPersonalInformationPage());
 	}
 }
