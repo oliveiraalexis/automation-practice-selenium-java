@@ -10,8 +10,8 @@ import com.automationpractice.myaccount.MyAccountPage;
 
 public class LoginTest {
 	
-private LoginPage paginaDeLogin;
-private MyAccountPage paginaMinhaConta;
+	private LoginPage paginaDeLogin;
+	private MyAccountPage paginaMinhaConta;
 	
 	@BeforeEach
 	public void before() {
